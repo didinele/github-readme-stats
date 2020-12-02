@@ -14,6 +14,7 @@ const { isLocaleAvailable } = require("../src/translations");
 module.exports = async (req, res) => {
   const {
     username,
+    extra,
     hide,
     hide_title,
     hide_border,
@@ -46,6 +47,7 @@ module.exports = async (req, res) => {
       username,
       langs_count,
       parseArray(exclude_repo),
+      decodeURIComponent(extra)
     );
 
     const cacheSeconds = clampValue(
